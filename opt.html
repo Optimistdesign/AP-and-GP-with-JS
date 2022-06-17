@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>	
+	<html lang="en">
+    <head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+			body{
+				background-color: #0174c0;
+			}
+
+.login-page {
+  width: 600px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  border-radius:8px;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  
+  }
+  button{
+	  height: 30px;
+	  width: 70px;
+  }
+  button:hover{
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+    transform: translateY(5px);
+     transition: 1s ease-in-out;
+  }
+  span{
+      color: red;
+      transition: 0.5s ease;
+      font-size:10px ;
+      font-weight: bold;
+  }
+		</style>
+    </head>
+    <body>
+		<div class="container">
+				<div class="row">
+				<div class="login-page col">
+						<div class="form row">
+				<form class="register-form col-sm-6">
+					<pre style="font-size:14px;">Arithmetic<br>Progression</pre>
+
+					<input type="number" id="afirst" placeholder="First Term"/>
+							<input type="number" id="anum" placeholder="No. of Terms"/>
+							<input type="number" id="adiff" placeholder="Com Diff"/>
+							<span id="message1"></span><br>
+							<button class="btn btn-primary" onclick="findAp(event)">GET AP</button>
+							<br><br>
+						</form>
+						<form class="login-form col-sm-6">
+								<pre style="font-size:14px;">Geometric<br>Progression</pre>
+
+							<input type="number" id="first" placeholder="First Term"/>
+							<input type="number" id="num" placeholder="No. of Terms"/>
+							<input type="number" id="diff" placeholder="Com ratio"/>
+							<span id="message2"></span><br>
+							<button class="btn btn-primary" onclick="findGp(event)">GET GP</button>
+						</form>
+						</div>
+					</div>
+				</div>					<div style="text-align:center; margin-bottom:30px;">
+					    <kbd style="background:none;">Codes by Optimist.jsx</kbd>
+
+					</div>
+			</div>
+		</div>
+    </body>
+    
+    <script>
+		function checkAp(afirst, anum, adiff){
+			var afirst = parseInt(afirst);  
+			var anum = parseInt(anum);
+			var adiff = parseInt(adiff);
+
+			var arithmetic = afirst + adiff*(anum-1);
+
+			return arithmetic;
+		}
+		function checkGp(first, num, diff){
+			var first = parseInt(first);
+			var num = parseInt(num);
+			var diff = parseInt(diff);
+
+			var Geometric = first * Math.pow(diff, num - 1);
+			return Geometric;
+		}
+
+		function findAp(event){
+			event.preventDefault();
+			const message = document.getElementById('message1');
+			try{
+				message.innerText = "";
+
+				const Np = document.getElementById('anum').value;
+				const Rp = document.getElementById('adiff').value;
+				const Ap = document.getElementById('afirst').value;
+
+				if(Np === "" || Rp === "" || Rp === ""){
+					throw new Error("All Input Parameters are required")
+				}
+				alert(checkAp(Np, Rp, Ap));
+				
+			}catch(err){
+				message.innerText = err.message;
+				console.error(err)
+			}
+			
+		}
+
+		
+		function findGp(event){
+			event.preventDefault();
+
+			message = document.getElementById('message2');
+			try {
+				message.innerText = "";
+
+				const A = document.getElementById('first').value;
+				const N = document.getElementById('num').value;
+				const R = document.getElementById('diff').value;
+
+				if(A === "" || N === "" || R === ""){
+					throw new Error("All Input Parameters are required")
+				}
+				alert(checkGp(A, N, R));
+
+			}catch(err){
+				message.innerText = err.message;
+				console.error(err)
+			}
+		}
+		</script>
+		
+</html>
