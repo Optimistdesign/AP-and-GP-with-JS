@@ -3,8 +3,9 @@ function checkAp(afirst, anum, adiff){
     var anum = parseInt(anum);
     var adiff = parseInt(adiff);
     var num1 = anum - 1;
+    var midiff = num1 * adiff
 
-    var arithmetic = afirst + (num1 * adiff);
+    var arithmetic = afirst + midiff;
 
     return arithmetic;
 }
