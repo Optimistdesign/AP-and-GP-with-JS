@@ -3,7 +3,7 @@ function checkAp(afirst, anum, adiff){
     var anum = parseInt(anum);
     var adiff = parseInt(adiff);
 
-    var arithmetic = afirst + (anum-1) * adiff
+    var arithmetic = afirst + (anum - 1) * adiff
 
     return arithmetic;
 }
@@ -22,14 +22,14 @@ function findAp(event){
     try{
         message.innerText = "";
 
-        const Np = document.getElementById('anum').value;
-        const Rp = document.getElementById('adiff').value;
         const Ap = document.getElementById('afirst').value;
+        const Np = document.getElementById('anum').value;
+        const Dp = document.getElementById('adiff').value;
 
-        if(Np === "" || Rp === "" || Rp === ""){
+        if(Ap === "" || Np === "" || Dp === ""){
             throw new Error("All Input Parameters are required")
         }
-        alert(checkAp(Np, Rp, Ap));
+        alert(checkAp(Ap, Np, Dp));
         
     }catch(err){
         message.innerText = err.message;
