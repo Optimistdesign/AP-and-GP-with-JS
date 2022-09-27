@@ -5,7 +5,7 @@ function checkAp(afirst, anum, adiff){
     var num1 = anum - 1;
     var midiff = num1 * adiff
 
-    var arithmetic = afirst + midiff;
+    var arithmetic = afirst;
 
     return arithmetic;
 }
